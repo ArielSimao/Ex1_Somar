@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if ((num1.getContext()==null) || (num2.getContext()==null)) {
+                if ((num1.getContext() != null) || (num2.getContext() != null)) {
                     Toast toast = Toast.makeText(getApplicationContext(),"Valor Nulo",1000);
                     toast.show();
                 }else{
