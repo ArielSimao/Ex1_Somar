@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.view.inputmethod.InputMethodManager;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 if (((num1.getText().toString().matches("")) || (num2.getText().toString().matches("")))) {
                     Toast toast = Toast.makeText(getApplicationContext(),"Valor Nulo Não Permitido",1000);
                     toast.show();
@@ -39,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
                     result.setText(String.valueOf(res));
                 }
+
+                try  {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                } catch (Exception e) {
+
+                }
+
             }
         });
 
