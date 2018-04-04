@@ -16,17 +16,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        num1 = (EditText) findViewById(R.id.editTextN1);
-        num2 = (EditText) findViewById(R.id.editTextN2);
-        result = (TextView) findViewById(R.id.textViewResultado);
+        num1 = findViewById(R.id.editTextN1);
+        num2 = findViewById(R.id.editTextN2);
+        result = findViewById(R.id.textViewResultado);
 
-        Button btnSomar = (Button) findViewById(R.id.btnSomar);
+
+
+        Button btnSomar =findViewById(R.id.btnSomar);
         btnSomar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if ((num1.getContext() != null) || (num2.getContext() != null)) {
-                    Toast toast = Toast.makeText(getApplicationContext(),"Valor Nulo",1000);
+
+                if (((num1.getText().toString().matches("")) || (num2.getText().toString().matches("")))) {
+                    Toast toast = Toast.makeText(getApplicationContext(),"Valor Nulo Não Permitido",1000);
                     toast.show();
                 }else{
 
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnLimpar = (Button) findViewById(R.id.btnLimpar);
+        Button btnLimpar = findViewById(R.id.btnLimpar);
         btnLimpar.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     EditText num1 = null;
     EditText num2 = null;
     TextView result = null;
